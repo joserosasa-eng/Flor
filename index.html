@@ -479,6 +479,24 @@
             .turntable{width:280px;height:280px}
             .vinyl-hub{width:72px;height:72px}.hub-heart{font-size:1.8rem}
             .tonearm{display:none}
+            .lily-wrap{width:min(450px,90vw);height:min(450px,90vw)}
+            .s3-content h1{font-size:1.8rem}
+            .s3-content p{font-size:.9rem}
+            .vq-buttons{flex-direction:column;gap:12px}
+            .btn-si{padding:12px 28px;font-size:1.1rem}
+            .love-name{font-size:2rem}
+            .payment-card{padding:20px 15px}
+            .countdown-boxes{gap:6px}
+            .cd-box{padding:8px 10px;min-width:55px}
+            .cd-num{font-size:1.4rem}
+        }
+        @media(max-width:360px){
+            .lock-body{width:150px;height:105px}.shackle{width:85px;height:48px}
+            .dial{width:28px;height:46px}
+            .turntable{width:240px;height:240px}
+            .vinyl-hub{width:60px;height:60px}.hub-heart{font-size:1.5rem}
+            .s3-content h1{font-size:1.5rem}
+            .btn-si{padding:10px 22px;font-size:1rem}
         }
     </style>
 </head>
@@ -681,7 +699,7 @@
         </div>
     </div>
 
-    <audio id="music-player" preload="auto"></audio>
+    <audio id="music-player" preload="auto" playsinline webkit-playsinline></audio>
 
     <script>
     // ═══════════════════════════════════════════
@@ -1012,11 +1030,33 @@
     }
     drawVinyl(0);
 
-    const actx=new(window.AudioContext||window.webkitAudioContext)();
-    function tickSnd(f){try{const o=actx.createOscillator(),g=actx.createGain();
-        o.connect(g);g.connect(actx.destination);o.frequency.value=f||1200;o.type='triangle';
-        g.gain.setValueAtTime(.04,actx.currentTime);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+.06);
-        o.start();o.stop(actx.currentTime+.06)}catch(e){}}
+    // ── Mobile-safe AudioContext: create on first user gesture ──
+    let actx=null;
+    function ensureAudioContext(){
+        if(!actx){
+            actx=new(window.AudioContext||window.webkitAudioContext)();
+        }
+        if(actx.state==='suspended'){
+            actx.resume().catch(()=>{});
+        }
+        return actx;
+    }
+    // Resume audio context on ANY user interaction (critical for iOS/Android)
+    ['click','touchstart','touchend','keydown'].forEach(evt=>{
+        document.addEventListener(evt, function unlockAudio(){
+            ensureAudioContext();
+            // Also try to "warm up" the music player for mobile
+            const mp=document.getElementById('music-player');
+            if(mp && mp.paused && mp.src){
+                mp.play().then(()=>mp.pause()).catch(()=>{});
+            }
+        },{once:false,passive:true});
+    });
+
+    function tickSnd(f){try{const ctx=ensureAudioContext();const o=ctx.createOscillator(),g=ctx.createGain();
+        o.connect(g);g.connect(ctx.destination);o.frequency.value=f||1200;o.type='triangle';
+        g.gain.setValueAtTime(.04,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.06);
+        o.start();o.stop(ctx.currentTime+.06)}catch(e){}}
 
     function getSeg(a){let n=(-Math.PI/2-a)%(Math.PI*2);if(n<0)n+=Math.PI*2;return Math.floor(n/ARC)%NUM}
 
@@ -1057,11 +1097,26 @@
             document.getElementById('result-overlay').classList.add('active');
 
             // Start music now — when "Reproduciendo..." shows
+            ensureAudioContext();
             const player = document.getElementById('music-player');
             player.src = song.file;
-            player.play().catch(()=>{
-                document.addEventListener('click',()=>player.play().catch(()=>{}),{once:true});
-            });
+            player.load(); // Force load on mobile
+            const playPromise = player.play();
+            if(playPromise !== undefined){
+                playPromise.catch(()=>{
+                    // Mobile fallback: wait for ANY user gesture to start playback
+                    const resumePlay = ()=>{
+                        ensureAudioContext();
+                        player.play().catch(()=>{});
+                        document.removeEventListener('click', resumePlay);
+                        document.removeEventListener('touchstart', resumePlay);
+                        document.removeEventListener('touchend', resumePlay);
+                    };
+                    document.addEventListener('click', resumePlay, {once:false});
+                    document.addEventListener('touchstart', resumePlay, {once:false,passive:true});
+                    document.addEventListener('touchend', resumePlay, {once:false,passive:true});
+                });
+            }
         },500);
 
         // Set song info for scene 3
@@ -1745,10 +1800,10 @@
     // ═══════════════════════════════════════════
     //  SHARED SYSTEMS
     // ═══════════════════════════════════════════
-    function clickSound(){try{const o=actx.createOscillator(),g=actx.createGain();
-        o.connect(g);g.connect(actx.destination);o.frequency.value=800+Math.random()*400;o.type='sine';
-        g.gain.setValueAtTime(.05,actx.currentTime);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+.1);
-        o.start();o.stop(actx.currentTime+.1)}catch(e){}}
+    function clickSound(){try{const ctx=ensureAudioContext();const o=ctx.createOscillator(),g=ctx.createGain();
+        o.connect(g);g.connect(ctx.destination);o.frequency.value=800+Math.random()*400;o.type='sine';
+        g.gain.setValueAtTime(.05,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.1);
+        o.start();o.stop(ctx.currentTime+.1)}catch(e){}}
 
     // Floating hearts
     (function(){const c=document.getElementById('hearts-container');
