@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌹 Para Sofia, Con Todo Mi Amor 🌹</title>
+<meta name="description" content="Una rosa mágica que florece solo para Sofia">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;min-height:100%;font-family:'Raleway',sans-serif}
+html{overflow-x:hidden;overflow-y:auto;scroll-behavior:smooth}
+body{background:#090a0f;background-attachment:fixed;display:flex;justify-content:flex-start;align-items:center;flex-direction:column;min-height:100vh;overflow-x:hidden}
+
+/* ═══ VIDEO BACKGROUND ═══ */
+.video-bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:0.35}
+.video-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(5,5,15,0.65);z-index:-1;pointer-events:none}
+
+/* ═══ NEBULA / AURORA BACKGROUND ═══ */
+.bg-layer{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden}
+.bg-gradient{position:absolute;inset:0;background:radial-gradient(ellipse at bottom,rgba(27,39,53,0.5) 0%,rgba(9,10,15,0.6) 100%)}
+.aurora{position:absolute;width:200%;height:200%;top:-50%;left:-50%;opacity:0.15;filter:blur(80px);animation:aurora-drift 20s ease-in-out infinite alternate}
+.aurora-1{background:radial-gradient(ellipse at 30% 50%,rgba(120,40,200,0.4),transparent 60%);animation-delay:0s}
+.aurora-2{background:radial-gradient(ellipse at 70% 30%,rgba(255,80,150,0.3),transparent 55%);animation-delay:-7s;animation-duration:25s}
+.aurora-3{background:radial-gradient(ellipse at 50% 70%,rgba(50,180,220,0.25),transparent 50%);animation-delay:-14s;animation-duration:30s}
+@keyframes aurora-drift{0%{transform:translate(0,0) rotate(0deg) scale(1)}33%{transform:translate(5%,-3%) rotate(2deg) scale(1.05)}66%{transform:translate(-3%,5%) rotate(-1deg) scale(0.95)}100%{transform:translate(2%,-2%) rotate(1deg) scale(1.02)}}
+.nebula-glow{position:absolute;border-radius:50%;filter:blur(60px);opacity:0.08;animation:nebula-pulse 8s ease-in-out infinite alternate}
+.nebula-1{width:400px;height:400px;top:10%;left:5%;background:rgba(180,100,255,0.5)}
+.nebula-2{width:300px;height:300px;bottom:20%;right:10%;background:rgba(255,100,180,0.5);animation-delay:-4s}
+.nebula-3{width:350px;height:250px;top:40%;right:30%;background:rgba(100,200,255,0.4);animation-delay:-2s}
+@keyframes nebula-pulse{0%{opacity:0.05;transform:scale(1)}100%{opacity:0.12;transform:scale(1.3)}}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:rgba(0,0,0,0.2)}
+::-webkit-scrollbar-thumb{background:rgba(255,100,150,0.3);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,100,150,0.5)}
+
+/* ═══ SPLASH SCREEN ═══ */
+.splash{position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;background:radial-gradient(ellipse at center,#1a1030,#090a0f);display:flex;flex-direction:column;justify-content:center;align-items:center;cursor:pointer;transition:opacity 1.5s ease,visibility 1.5s ease}
+.splash.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.splash-name{font-family:'Great Vibes',cursive;font-size:clamp(4rem,12vw,8rem);color:transparent;background:linear-gradient(135deg,#ff6b9d,#ffa8c5,#ff6b9d,#c471ed);background-size:300% 300%;-webkit-background-clip:text;background-clip:text;animation:shimmer-text 3s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(255,107,157,0.6));opacity:0;animation:splash-name-in 2s ease-out 0.5s forwards,shimmer-text 3s ease-in-out infinite}
+.splash-sub{font-family:'Raleway',sans-serif;font-size:clamp(0.8rem,2vw,1.1rem);color:rgba(255,200,220,0.6);letter-spacing:5px;text-transform:uppercase;margin-top:20px;opacity:0;animation:fade-in-up 1.5s ease-out 2s forwards}
+.splash-hint{position:absolute;bottom:60px;font-family:'Raleway',sans-serif;font-size:0.85rem;color:rgba(255,200,220,0.4);letter-spacing:2px;opacity:0;animation:fade-in-up 1s ease-out 3s forwards,pulse-gentle 2s ease-in-out 3s infinite}
+@keyframes splash-name-in{0%{opacity:0;transform:scale(0.5) translateY(20px);filter:blur(10px)}100%{opacity:1;transform:scale(1) translateY(0);filter:drop-shadow(0 0 30px rgba(255,107,157,0.6))}}
+@keyframes pulse-gentle{0%,100%{opacity:0.4}50%{opacity:0.8}}
+
+/* ═══ STARS ═══ */
+.stars-container{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.star{position:absolute;border-radius:50%;animation:twinkle var(--duration) ease-in-out infinite alternate}
+@keyframes twinkle{0%{opacity:0.15;transform:scale(0.8)}100%{opacity:1;transform:scale(1.3)}}
+
+/* ═══ SHOOTING STARS ═══ */
+.shooting-star{position:fixed;width:3px;height:3px;background:linear-gradient(to right,rgba(255,255,255,0),rgba(255,255,255,1));border-radius:50%;z-index:1;opacity:0}
+.shooting-star::after{content:'';position:absolute;top:0;left:0;width:80px;height:2px;background:linear-gradient(to left,rgba(255,255,255,0),rgba(255,255,255,0.6));transform:translateX(-100%)}
+@keyframes shoot{0%{opacity:1;transform:translate(0,0) rotate(-45deg)}100%{opacity:0;transform:translate(300px,300px) rotate(-45deg)}}
+
+/* ═══ PARTICLES ═══ */
+.particles-container{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.particle{position:absolute;border-radius:50%;animation:float-particle linear infinite;pointer-events:none}
+@keyframes float-particle{0%{transform:translateY(100vh) translateX(0) scale(0);opacity:0}10%{opacity:1;transform:translateY(90vh) translateX(10px) scale(1)}50%{opacity:0.8;transform:translateY(50vh) translateX(-20px) scale(0.8)}90%{opacity:0.3;transform:translateY(10vh) translateX(15px) scale(0.5)}100%{transform:translateY(-5vh) translateX(0) scale(0);opacity:0}}
+
+/* ═══ FALLING PETALS ═══ */
+.petal-fall{position:fixed;pointer-events:none;z-index:4;opacity:0.7}
+@keyframes petal-falling{0%{transform:translateY(-20px) rotate(0deg) translateX(0);opacity:0}10%{opacity:0.8}50%{transform:translateY(50vh) rotate(180deg) translateX(40px);opacity:0.6}100%{transform:translateY(105vh) rotate(360deg) translateX(-30px);opacity:0}}
+
+/* ═══ SCENE ═══ */
+.scene{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;gap:15px;opacity:0;transition:opacity 1s ease;padding:40px 20px 100px;width:100%;max-width:700px}
+.scene.visible{opacity:1}
+
+/* ═══ ROSE ═══ */
+.rose-container{position:relative;width:280px;height:320px;display:flex;justify-content:center;align-items:center;filter:drop-shadow(0 0 30px rgba(255,50,100,0.4));animation:gentle-sway 4s ease-in-out infinite}
+@keyframes gentle-sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+.rose{position:relative;width:100%;height:100%}
+.stem{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:8px;height:0;background:linear-gradient(to top,#2d5a27,#4a8c3f);border-radius:4px;animation:grow-stem 2s ease-out forwards;transform-origin:bottom center}
+.stem::before{content:'';position:absolute;bottom:60%;left:-2px;width:4px;height:2px;background:#3d7a35;border-radius:2px;box-shadow:0 0 3px rgba(74,140,63,0.5)}
+@keyframes grow-stem{0%{height:0}100%{height:190px}}
+.thorn{position:absolute;width:15px;height:4px;background:#3d6e35;opacity:0;animation:grow-thorn 0.5s ease-out forwards}
+.thorn-left{left:-13px;transform:rotate(-30deg);border-radius:2px 0 0 2px;animation-delay:1.5s}
+.thorn-right{right:-13px;transform:rotate(30deg);border-radius:0 2px 2px 0;animation-delay:1.8s}
+@keyframes grow-thorn{0%{opacity:0;width:0}100%{opacity:1;width:15px}}
+.leaf{position:absolute;width:0;height:0;opacity:0;animation:grow-leaf 1.5s ease-out forwards}
+.leaf-left{bottom:100px;left:-45px;width:50px;height:25px;background:linear-gradient(135deg,#2d8a2e,#5cb85c);border-radius:0 80% 0 80%;box-shadow:inset -3px -3px 8px rgba(0,0,0,0.2);transform:rotate(-20deg);animation-delay:2.2s}
+.leaf-right{bottom:130px;right:-45px;width:50px;height:25px;background:linear-gradient(225deg,#2d8a2e,#5cb85c);border-radius:80% 0 80% 0;box-shadow:inset 3px -3px 8px rgba(0,0,0,0.2);transform:rotate(20deg);animation-delay:2.5s}
+.leaf-vein{position:absolute;width:60%;height:1px;background:rgba(0,0,0,0.15);top:50%;left:20%}
+@keyframes grow-leaf{0%{opacity:0;transform:scale(0) rotate(var(--rotation,0deg))}100%{opacity:1;transform:scale(1) rotate(var(--rotation,0deg))}}
+.flower-head{position:absolute;top:20px;left:50%;transform:translateX(-50%);width:140px;height:140px;opacity:0;animation:bloom-head 2s ease-out 2s forwards}
+@keyframes bloom-head{0%{opacity:0;transform:translateX(-50%) scale(0)}50%{opacity:1;transform:translateX(-50%) scale(1.1)}100%{opacity:1;transform:translateX(-50%) scale(1)}}
+.petal{position:absolute;border-radius:50%;transform-origin:center bottom;opacity:0}
+.petal-outer{width:55px;height:70px;background:linear-gradient(to top,#c41e3a,#e74c6f);box-shadow:inset -3px -3px 10px rgba(0,0,0,0.2),inset 3px 3px 10px rgba(255,255,255,0.1),0 0 15px rgba(231,76,111,0.3)}
+.petal-1{top:10px;left:42px;animation:bloom-petal 1.5s ease-out 2.5s forwards}
+.petal-2{top:20px;left:75px;animation:bloom-petal 1.5s ease-out 2.7s forwards}
+.petal-3{top:50px;left:85px;animation:bloom-petal 1.5s ease-out 2.9s forwards}
+.petal-4{top:75px;left:70px;animation:bloom-petal 1.5s ease-out 3.1s forwards}
+.petal-5{top:80px;left:35px;animation:bloom-petal 1.5s ease-out 3.3s forwards}
+.petal-6{top:60px;left:5px;animation:bloom-petal 1.5s ease-out 3.5s forwards}
+.petal-7{top:30px;left:0px;animation:bloom-petal 1.5s ease-out 3.7s forwards}
+.petal-8{top:10px;left:18px;animation:bloom-petal 1.5s ease-out 3.9s forwards}
+.petal-inner{width:40px;height:50px;background:linear-gradient(to top,#d42e4e,#f06292);box-shadow:inset -2px -2px 8px rgba(0,0,0,0.15),inset 2px 2px 8px rgba(255,255,255,0.15),0 0 10px rgba(240,98,146,0.3)}
+.petal-9{top:30px;left:50px;animation:bloom-petal-inner 1.5s ease-out 4.1s forwards}
+.petal-10{top:45px;left:65px;animation:bloom-petal-inner 1.5s ease-out 4.3s forwards}
+.petal-11{top:55px;left:50px;animation:bloom-petal-inner 1.5s ease-out 4.5s forwards}
+.petal-12{top:45px;left:30px;animation:bloom-petal-inner 1.5s ease-out 4.7s forwards}
+.petal-13{top:30px;left:35px;animation:bloom-petal-inner 1.5s ease-out 4.9s forwards}
+.petal-center{width:25px;height:30px;background:linear-gradient(to top,#e91e63,#ff80ab);box-shadow:inset -1px -1px 5px rgba(0,0,0,0.1),0 0 15px rgba(233,30,99,0.5)}
+.petal-14{top:42px;left:52px;animation:bloom-petal-center 1.5s ease-out 5.1s forwards}
+.petal-15{top:48px;left:55px;animation:bloom-petal-center 1.5s ease-out 5.3s forwards}
+.petal-16{top:45px;left:48px;animation:bloom-petal-center 1.5s ease-out 5.5s forwards}
+@keyframes bloom-petal{0%{opacity:0;transform:rotate(var(--r,0deg)) scale(0) translateY(20px)}60%{opacity:1}100%{opacity:1;transform:rotate(var(--r,0deg)) scale(1) translateY(0)}}
+@keyframes bloom-petal-inner{0%{opacity:0;transform:scale(0)}60%{opacity:0.9}100%{opacity:1;transform:scale(1)}}
+@keyframes bloom-petal-center{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:scale(1)}}
+.glow{position:absolute;top:30px;left:50%;transform:translateX(-50%);width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,100,150,0.25),transparent);opacity:0;animation:glow-pulse 3s ease-in-out 5s infinite;pointer-events:none}
+.glow::after{content:'';position:absolute;inset:-20px;border-radius:50%;background:radial-gradient(circle,rgba(255,80,130,0.1),transparent 70%);animation:glow-expand 4s ease-in-out 5s infinite alternate}
+@keyframes glow-pulse{0%,100%{opacity:0.3;transform:translateX(-50%) scale(1)}50%{opacity:0.7;transform:translateX(-50%) scale(1.15)}}
+@keyframes glow-expand{0%{transform:scale(1);opacity:0.3}100%{transform:scale(1.4);opacity:0.1}}
+.rose-sparkle{position:absolute;width:3px;height:3px;background:white;border-radius:50%;pointer-events:none;opacity:0;animation:rose-sparkle-anim 2s ease-in-out infinite}
+@keyframes rose-sparkle-anim{0%,100%{opacity:0;transform:scale(0)}50%{opacity:0.9;transform:scale(1);box-shadow:0 0 6px rgba(255,200,220,0.8)}}
+.sepal{position:absolute;bottom:-8px;width:20px;height:30px;background:linear-gradient(to top,#2d5a27,#4a8c3f);border-radius:0 80% 0 80%;opacity:0;animation:grow-leaf 1s ease-out 2s forwards;transform-origin:bottom center}
+.sepal:nth-child(1){left:50px;transform:rotate(-30deg)}
+.sepal:nth-child(2){left:68px;transform:rotate(10deg)}
+.sepal:nth-child(3){left:85px;transform:rotate(40deg)}
+.dew{position:absolute;width:6px;height:8px;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.9),rgba(180,220,255,0.4));border-radius:50% 50% 50% 50%/60% 60% 40% 40%;opacity:0;animation:dew-appear 2s ease-out forwards,dew-shine 3s ease-in-out infinite}
+.dew-1{top:35px;left:70px;animation-delay:5.5s,6s}
+.dew-2{top:60px;left:95px;animation-delay:6s,6.5s}
+.dew-3{top:50px;left:30px;animation-delay:6.3s,6.8s}
+@keyframes dew-appear{0%{opacity:0;transform:scale(0)}100%{opacity:0.8;transform:scale(1)}}
+@keyframes dew-shine{0%,100%{filter:brightness(1)}50%{filter:brightness(1.5)}}
+
+/* ═══ EREN THE CAT (ORANGE TABBY!) ═══ */
+.cat-container{position:absolute;bottom:-15px;right:-100px;z-index:15;cursor:pointer;animation:cat-appear 1s ease-out 6s forwards;opacity:0;transform:scale(0.8);transition:transform 0.3s ease}
+.cat-container:hover{transform:scale(0.9)!important}
+@keyframes cat-appear{0%{opacity:0;transform:translateX(30px) scale(0.8)}100%{opacity:1;transform:translateX(0) scale(0.8)}}
+.cat{position:relative;width:70px;height:55px;animation:cat-breathe 3s ease-in-out infinite}
+@keyframes cat-breathe{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.02)}}
+.cat-body{width:55px;height:35px;background:linear-gradient(135deg,#f5a623,#e8912d,#d4791c);border-radius:50% 50% 45% 45%;position:absolute;bottom:0;left:5px;box-shadow:inset 2px 2px 5px rgba(255,255,255,0.15),inset -2px -2px 4px rgba(0,0,0,0.15)}
+.cat-body::after{content:'';position:absolute;top:5px;left:10px;width:35px;height:20px;background:repeating-linear-gradient(90deg,transparent,transparent 5px,rgba(180,100,20,0.3) 5px,rgba(180,100,20,0.3) 7px);border-radius:50%;opacity:0.5}
+.cat-body::before{content:'';position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:30px;height:12px;background:rgba(255,220,180,0.4);border-radius:50%;opacity:0.6}
+.cat-head{width:35px;height:30px;background:linear-gradient(135deg,#f5a623,#e8912d);border-radius:50% 50% 40% 40%;position:absolute;top:0;left:0;z-index:2}
+.cat-head::after{content:'';position:absolute;top:4px;left:8px;width:18px;height:10px;background:repeating-linear-gradient(90deg,transparent,transparent 4px,rgba(180,100,20,0.25) 4px,rgba(180,100,20,0.25) 5px);border-radius:50%;opacity:0.6}
+.cat-ear{position:absolute;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:14px solid #f5a623;top:-10px}
+.cat-ear-left{left:3px;transform:rotate(-15deg)}
+.cat-ear-right{right:3px;transform:rotate(15deg)}
+.cat-ear-inner{position:absolute;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:9px solid #ffb8c6;top:-8px}
+.cat-ear-inner.left{left:6px;transform:rotate(-15deg)}
+.cat-ear-inner.right{right:6px;transform:rotate(15deg)}
+.cat-eye{width:7px;height:7px;background:radial-gradient(circle at 40% 40%,#a8e063,#56ab2f,#2d8a2e);border-radius:50%;position:absolute;top:10px;animation:cat-blink 4s ease-in-out infinite;box-shadow:0 0 4px rgba(86,171,47,0.4)}
+.cat-eye.left{left:6px}
+.cat-eye.right{left:21px}
+.cat-eye::after{content:'';position:absolute;width:2px;height:6px;background:#111;border-radius:40%;top:0.5px;left:2.5px}
+.cat-eye::before{content:'';position:absolute;width:1px;height:1px;background:rgba(255,255,255,0.8);border-radius:50%;top:1px;left:1.5px}
+@keyframes cat-blink{0%,42%,50%,100%{transform:scaleY(1)}45%,47%{transform:scaleY(0.1)}}
+.cat-nose{width:5px;height:3px;background:linear-gradient(135deg,#ffb0c4,#ff8fa3);border-radius:50%;position:absolute;top:16px;left:14px;box-shadow:0 0 2px rgba(255,176,196,0.5)}
+.cat-mouth{position:absolute;top:18px;left:11px;width:14px;height:5px;border-bottom:1.5px solid rgba(255,158,181,0.5);border-radius:0 0 50% 50%}
+.cat-whisker{position:absolute;height:1px;background:rgba(255,220,200,0.5);top:15px}
+.cat-whisker.wl1{left:-14px;width:17px;transform:rotate(-8deg);animation:whisker-twitch 3s ease-in-out infinite}
+.cat-whisker.wl2{left:-12px;width:15px;top:17px;transform:rotate(5deg);animation:whisker-twitch 3s ease-in-out 0.5s infinite}
+.cat-whisker.wr1{right:-14px;width:17px;transform:rotate(8deg);animation:whisker-twitch 3s ease-in-out 0.3s infinite}
+.cat-whisker.wr2{right:-12px;width:15px;top:17px;transform:rotate(-5deg);animation:whisker-twitch 3s ease-in-out 0.8s infinite}
+@keyframes whisker-twitch{0%,100%{transform:rotate(var(--wr,0deg))}50%{transform:rotate(calc(var(--wr,0deg) + 3deg))}}
+.cat-tail{position:absolute;bottom:8px;right:-18px;width:35px;height:22px;border-top:5px solid #f5a623;border-right:5px solid #f5a623;border-radius:0 70% 0 0;animation:tail-wag 2s ease-in-out infinite;background:none}
+.cat-tail::after{content:'';position:absolute;top:-4px;right:-2px;width:8px;height:5px;background:#d4791c;border-radius:50%;opacity:0.5}
+@keyframes tail-wag{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(15deg)}}
+.cat-paws{position:absolute;bottom:-3px;left:12px;display:flex;gap:18px}
+.cat-paw{width:8px;height:5px;background:#f5a623;border-radius:0 0 50% 50%;box-shadow:0 1px 2px rgba(0,0,0,0.2)}
+.cat-purr{position:absolute;top:-28px;left:50%;transform:translateX(-50%);font-size:0.7rem;color:rgba(255,200,220,0.9);white-space:nowrap;opacity:0;transition:opacity 0.3s;pointer-events:none;font-family:'Raleway',sans-serif;text-shadow:0 0 8px rgba(255,150,200,0.4)}
+.cat-container.purring .cat-purr{opacity:1;animation:purr-float 1.5s ease-out forwards}
+@keyframes purr-float{0%{opacity:1;transform:translateX(-50%) translateY(0)}100%{opacity:0;transform:translateX(-50%) translateY(-25px)}}
+.cat-label{font-family:'Raleway',sans-serif;font-size:0.6rem;color:rgba(255,180,140,0.6);text-align:center;margin-top:5px;letter-spacing:1px}
+
+/* ═══ HEARTS ═══ */
+.hearts-container{position:fixed;top:0;left:0;width:100%;height:100%;z-index:5;pointer-events:none;overflow:hidden}
+.floating-heart{position:absolute;color:rgba(255,100,150,0.6);font-size:20px;animation:float-heart linear infinite;pointer-events:none}
+@keyframes float-heart{0%{transform:translateY(100vh) rotate(0deg) scale(0);opacity:0}15%{opacity:0.8;transform:translateY(85vh) rotate(45deg) scale(1)}85%{opacity:0.4}100%{transform:translateY(-10vh) rotate(360deg) scale(0.3);opacity:0}}
+
+/* ═══ MESSAGE ═══ */
+.message-container{position:relative;z-index:15;text-align:center;opacity:0;animation:fade-in-up 2s ease-out 6s forwards;padding:0 20px}
+.message-title{font-family:'Great Vibes',cursive;font-size:clamp(2.2rem,5.5vw,4rem);color:transparent;background:linear-gradient(135deg,#ff6b9d,#ffa8c5,#ff6b9d,#ff4081);background-size:300% 300%;-webkit-background-clip:text;background-clip:text;animation:shimmer-text 4s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(255,107,157,0.5));margin-bottom:10px}
+@keyframes shimmer-text{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.message-subtitle{font-family:'Raleway',sans-serif;font-size:clamp(0.8rem,2vw,1.1rem);font-weight:300;color:rgba(255,200,220,0.85);letter-spacing:3px;text-transform:uppercase;margin-bottom:15px}
+.message-poem{font-family:'Raleway',sans-serif;font-size:clamp(0.8rem,1.8vw,1rem);font-weight:300;color:rgba(255,220,230,0.7);line-height:1.9;max-width:500px;margin:0 auto;font-style:italic}
+.message-poem .line{opacity:0;overflow:hidden;white-space:nowrap;border-right:2px solid rgba(255,180,220,0.7);width:0;margin:0 auto;animation:typing-line 2s steps(40,end) forwards,blink-caret 0.75s step-end 6}
+.message-poem .line:nth-child(1){animation-delay:7s,7s}
+.message-poem .line:nth-child(2){animation-delay:9.5s,9.5s}
+.message-poem .line:nth-child(3){animation-delay:12s,12s}
+.message-poem .line:nth-child(4){animation-delay:14.5s,14.5s;border-right-color:transparent}
+.message-poem .line:last-child{animation:typing-line 2s steps(40,end) 14.5s forwards,blink-caret 0.75s step-end 14.5s 6,hide-caret 0.1s 17s forwards}
+@keyframes typing-line{0%{width:0;opacity:1}100%{width:100%;opacity:1}}
+@keyframes blink-caret{from,to{border-color:transparent}50%{border-color:rgba(255,180,220,0.7)}}
+@keyframes hide-caret{to{border-right-color:transparent}}
+@keyframes fade-in-up{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+
+/* ═══ LAWYER CARDS ═══ */
+.lawyer-cards{position:relative;z-index:15;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:15px;max-width:600px;padding:0 15px;opacity:0;animation:fade-in-up 1.5s ease-out 17s forwards}
+.law-card{background:rgba(255,100,150,0.08);border:1px solid rgba(255,100,150,0.2);border-radius:15px;padding:10px 18px;backdrop-filter:blur(10px);cursor:pointer;transition:all 0.4s ease;position:relative;overflow:hidden}
+.law-card:hover{background:rgba(255,100,150,0.18);border-color:rgba(255,150,180,0.5);box-shadow:0 0 20px rgba(255,100,150,0.2);transform:translateY(-3px) scale(1.03)}
+.law-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.05),transparent);transition:left 0.6s ease}
+.law-card:hover::before{left:100%}
+.law-card-text{font-family:'Raleway',sans-serif;font-size:clamp(0.7rem,1.5vw,0.85rem);color:rgba(255,200,220,0.85);font-weight:300}
+.law-card-icon{margin-right:6px}
+
+/* ═══ BUTTON ═══ */
+.heart-button{position:relative;z-index:20;margin-top:20px;padding:12px 35px;border:2px solid rgba(255,100,150,0.5);background:rgba(255,100,150,0.1);color:#ffa8c5;font-family:'Raleway',sans-serif;font-size:0.9rem;font-weight:400;letter-spacing:2px;cursor:pointer;border-radius:50px;transition:all 0.4s ease;opacity:0;animation:fade-in-up 1.5s ease-out 18.5s forwards;backdrop-filter:blur(10px)}
+.heart-button:hover{background:rgba(255,100,150,0.3);border-color:rgba(255,150,180,0.8);box-shadow:0 0 30px rgba(255,100,150,0.4),0 0 60px rgba(255,100,150,0.2);transform:scale(1.05)}
+.heart-button:active{transform:scale(0.98)}
+
+/* ═══ HEART CANVAS ═══ */
+.heart-canvas-section{position:relative;z-index:15;width:100%;max-width:400px;margin:20px auto;opacity:0;animation:fade-in-up 1.5s ease-out 19.5s forwards;cursor:pointer}
+.heart-canvas{width:100%;aspect-ratio:1/1;display:block;border-radius:20px}
+.heart-canvas-label{text-align:center;font-family:'Raleway',sans-serif;font-size:0.7rem;color:rgba(255,200,220,0.4);letter-spacing:2px;margin-top:8px}
+
+/* ═══ COUNTDOWN ═══ */
+.countdown-section{position:relative;z-index:15;text-align:center;margin:25px auto;opacity:0;animation:fade-in-up 1.5s ease-out 20.5s forwards;max-width:500px;padding:0 15px}
+.countdown-label{font-family:'Raleway',sans-serif;font-size:clamp(0.7rem,1.5vw,0.85rem);color:rgba(255,200,220,0.6);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.countdown-timer{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.countdown-unit{background:rgba(255,100,150,0.08);border:1px solid rgba(255,100,150,0.2);border-radius:12px;padding:12px 16px;min-width:65px;backdrop-filter:blur(10px)}
+.countdown-value{font-family:'Raleway',sans-serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:600;color:#ffa8c5;text-shadow:0 0 15px rgba(255,150,200,0.4);display:block;line-height:1}
+.countdown-name{font-family:'Raleway',sans-serif;font-size:0.55rem;color:rgba(255,200,220,0.5);letter-spacing:1px;text-transform:uppercase;margin-top:4px;display:block}
+.countdown-done{font-family:'Great Vibes',cursive;font-size:clamp(1.5rem,4vw,2.5rem);color:#ffa8c5;text-shadow:0 0 20px rgba(255,150,200,0.5)}
+
+/* ═══ CODE TERMINAL ═══ */
+.code-terminal-section{position:relative;z-index:15;width:100%;max-width:580px;margin:25px auto;opacity:0;animation:fade-in-up 1.5s ease-out 21.5s forwards;padding:0 15px}
+.code-terminal{background:rgba(30,30,40,0.95);border:1px solid rgba(80,80,100,0.3);border-radius:10px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.4);backdrop-filter:blur(10px)}
+.code-terminal-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:rgba(40,40,55,0.9);border-bottom:1px solid rgba(80,80,100,0.2)}
+.code-dot{width:10px;height:10px;border-radius:50%}
+.code-dot.red{background:#ff5f57}
+.code-dot.yellow{background:#ffbd2e}
+.code-dot.green{background:#28c840}
+.code-terminal-title{flex:1;text-align:center;font-family:'Courier New',monospace;font-size:0.65rem;color:rgba(200,200,220,0.5)}
+.code-body{padding:16px;font-family:'Courier New','Fira Code',monospace;font-size:clamp(0.65rem,1.4vw,0.8rem);line-height:1.7;color:rgba(200,200,220,0.85);min-height:200px;max-height:350px;overflow-y:auto;position:relative}
+.code-body::-webkit-scrollbar{width:4px}
+.code-body::-webkit-scrollbar-thumb{background:rgba(255,100,150,0.2);border-radius:2px}
+.code-line{display:flex;gap:12px}
+.code-line-num{color:rgba(100,100,120,0.5);user-select:none;min-width:20px;text-align:right}
+.code-line-content{flex:1;white-space:pre-wrap;word-break:break-word}
+.code-cursor{display:inline-block;width:7px;height:14px;background:rgba(255,180,220,0.8);animation:code-blink 1s step-end infinite;vertical-align:text-bottom;margin-left:1px}
+@keyframes code-blink{0%,100%{opacity:1}50%{opacity:0}}
+/* Syntax colors */
+.syn-kw{color:#c678dd}
+.syn-str{color:#98c379}
+.syn-cm{color:#5c6370;font-style:italic}
+.syn-fn{color:#61afef}
+.syn-var{color:#e5c07b}
+.syn-num{color:#d19a66}
+.syn-cls{color:#e06c75}
+
+/* ═══ WEBGL HEART ═══ */
+.webgl-heart-section{position:relative;z-index:15;width:100%;max-width:500px;margin:30px auto;opacity:0;animation:fade-in-up 1.5s ease-out 23s forwards;padding:0 15px}
+.webgl-heart-wrap{border-radius:16px;overflow:hidden;border:1px solid rgba(255,100,150,0.15);box-shadow:0 10px 50px rgba(0,0,0,0.5),0 0 40px rgba(255,80,150,0.08)}
+.webgl-heart-canvas{width:100%;aspect-ratio:16/10;display:block;background:#000}
+.webgl-heart-label{text-align:center;font-family:'Raleway',sans-serif;color:rgba(255,200,220,0.5);letter-spacing:2px;margin-top:10px;font-size:0.7rem}
+.webgl-heart-label a{color:rgba(255,150,200,0.5);text-decoration:none}
+.webgl-heart-credit{text-align:center;font-family:'Courier New',monospace;color:rgba(100,100,120,0.3);font-size:0.5rem;margin-top:4px}
+
+/* ═══ HEART BURST ═══ */
+.heart-burst{position:fixed;pointer-events:none;z-index:100;font-size:24px;animation:burst 1.5s ease-out forwards}
+@keyframes burst{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0.5) rotate(var(--rot))}}
+
+/* ═══ CLICK RIPPLES ═══ */
+.click-ripple{position:fixed;border:2px solid rgba(255,100,150,0.6);border-radius:50%;pointer-events:none;z-index:999;animation:ripple-expand 0.8s ease-out forwards}
+@keyframes ripple-expand{0%{width:0;height:0;opacity:1}100%{width:150px;height:150px;opacity:0;margin-top:-75px;margin-left:-75px}}
+
+/* ═══ FIREWORKS CANVAS ═══ */
+.fireworks-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:998;pointer-events:none}
+
+/* ═══ KONAMI SECRET ═══ */
+.konami-overlay{position:fixed;top:0;left:0;width:100%;height:100%;z-index:9998;background:rgba(0,0,0,0.85);display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:all 0.8s ease;backdrop-filter:blur(10px)}
+.konami-overlay.active{opacity:1;visibility:visible}
+.konami-msg{font-family:'Great Vibes',cursive;font-size:clamp(2rem,8vw,5rem);color:transparent;background:linear-gradient(135deg,#ff6b9d,#ff4081,#c471ed,#ff6b9d);background-size:400% 400%;-webkit-background-clip:text;background-clip:text;animation:shimmer-text 2s ease-in-out infinite;text-align:center;padding:0 20px}
+.konami-sub{font-family:'Raleway',sans-serif;font-size:clamp(0.8rem,2vw,1.2rem);color:rgba(255,200,220,0.7);margin-top:20px;letter-spacing:3px}
+.konami-close{margin-top:30px;padding:10px 30px;border:1px solid rgba(255,100,150,0.3);background:transparent;color:#ffa8c5;font-family:'Raleway',sans-serif;font-size:0.8rem;border-radius:25px;cursor:pointer;transition:all 0.3s}
+.konami-close:hover{background:rgba(255,100,150,0.2);box-shadow:0 0 20px rgba(255,100,150,0.3)}
+
+/* ═══ LOVE POPUP ═══ */
+.love-popup{position:fixed;z-index:500;background:rgba(255,100,150,0.12);border:1px solid rgba(255,100,150,0.25);border-radius:15px;padding:12px 20px;backdrop-filter:blur(12px);pointer-events:none;animation:love-popup-anim 3s ease-out forwards;font-family:'Raleway',sans-serif;font-size:0.85rem;color:rgba(255,200,220,0.9);white-space:nowrap;box-shadow:0 5px 20px rgba(0,0,0,0.3)}
+@keyframes love-popup-anim{0%{opacity:0;transform:translateY(20px) scale(0.8)}15%{opacity:1;transform:translateY(0) scale(1)}80%{opacity:1;transform:translateY(-30px)}100%{opacity:0;transform:translateY(-60px) scale(0.7)}}
+
+/* ═══ MOON (ENHANCED) ═══ */
+.moon{position:fixed;top:8%;right:12%;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffeedd,#ffd699,#e8c170);box-shadow:0 0 40px rgba(255,214,153,0.4),0 0 80px rgba(255,214,153,0.2),0 0 120px rgba(255,214,153,0.1),0 0 200px rgba(255,200,100,0.05);z-index:1;animation:moon-glow 5s ease-in-out infinite alternate}
+.moon::after{content:'';position:absolute;top:10px;left:15px;width:65px;height:65px;border-radius:50%;background:radial-gradient(circle at 50% 50%,transparent 50%,rgba(0,0,0,0.04))}
+.moon::before{content:'';position:absolute;inset:-15px;border-radius:50%;border:1px solid rgba(255,214,153,0.08);animation:moon-ring 10s linear infinite}
+@keyframes moon-ring{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes moon-glow{0%{box-shadow:0 0 40px rgba(255,214,153,0.3),0 0 80px rgba(255,214,153,0.15),0 0 200px rgba(255,200,100,0.03)}100%{box-shadow:0 0 60px rgba(255,214,153,0.5),0 0 100px rgba(255,214,153,0.25),0 0 160px rgba(255,214,153,0.12),0 0 250px rgba(255,200,100,0.06)}}
+.moon-crater{position:absolute;border-radius:50%;background:rgba(200,170,120,0.15);box-shadow:inset 1px 1px 3px rgba(0,0,0,0.1)}
+.crater-1{width:12px;height:12px;top:20px;left:25px}
+.crater-2{width:8px;height:8px;top:40px;left:55px}
+.crater-3{width:15px;height:14px;top:55px;left:30px;opacity:0.7}
+.crater-4{width:6px;height:6px;top:15px;left:50px;opacity:0.5}
+.moon-cloud{position:fixed;z-index:2;opacity:0;animation:cloud-pass 20s linear infinite}
+.moon-cloud-shape{width:120px;height:20px;background:rgba(200,210,230,0.04);border-radius:30px;filter:blur(8px);position:relative}
+.moon-cloud-shape::before{content:'';position:absolute;top:-8px;left:20px;width:40px;height:18px;background:rgba(200,210,230,0.03);border-radius:50%;filter:blur(5px)}
+.cloud-1{top:7%;right:5%;animation-delay:0s}
+.cloud-2{top:12%;right:15%;animation-delay:-10s;animation-duration:25s}
+@keyframes cloud-pass{0%{opacity:0;transform:translateX(100px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translateX(-200px)}}
+
+/* ═══ GROUND (ENHANCED) ═══ */
+.ground{position:fixed;bottom:0;left:0;width:100%;height:80px;background:linear-gradient(to top,#0d1a0d,#152515 30%,#1a2e1a 60%,transparent);z-index:3}
+.ground::before{content:'';position:absolute;top:-10px;left:0;width:100%;height:20px;background:linear-gradient(to top,rgba(30,60,30,0.3),transparent);filter:blur(5px)}
+.ground-fog{position:fixed;bottom:0;left:0;width:200%;height:40px;z-index:4;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(150,180,150,0.03),rgba(200,220,200,0.05),rgba(150,180,150,0.03),transparent);animation:fog-drift 15s linear infinite;filter:blur(3px)}
+@keyframes fog-drift{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══ MUSIC PLAYER ═══ */
+.music-player{position:fixed;bottom:30px;right:30px;z-index:200;display:flex;align-items:center;gap:12px;opacity:0;animation:fade-in-up 1.5s ease-out 1s forwards}
+.music-info{text-align:right;opacity:0;transform:translateX(20px);transition:all 0.4s ease;pointer-events:none}
+.music-player:hover .music-info,.music-player.playing .music-info{opacity:1;transform:translateX(0)}
+.music-song-title{font-family:'Raleway',sans-serif;font-size:0.75rem;color:rgba(255,200,220,0.9);font-weight:400;letter-spacing:1px;white-space:nowrap}
+.music-artist{font-family:'Raleway',sans-serif;font-size:0.65rem;color:rgba(255,200,220,0.5);font-weight:300}
+.music-btn{width:55px;height:55px;border-radius:50%;border:2px solid rgba(255,100,150,0.4);background:rgba(15,10,25,0.6);backdrop-filter:blur(15px);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.4s ease;position:relative;overflow:hidden;flex-shrink:0}
+.music-btn:hover{border-color:rgba(255,150,180,0.8);box-shadow:0 0 25px rgba(255,100,150,0.3);transform:scale(1.08)}
+.music-btn::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:conic-gradient(from 0deg,rgba(255,100,150,0.1),rgba(255,150,200,0.05),rgba(255,100,150,0.1),rgba(255,150,200,0.05),rgba(255,100,150,0.1));animation:none}
+.music-player.playing .music-btn::before{animation:spin-vinyl 3s linear infinite}
+@keyframes spin-vinyl{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.music-icon{position:relative;z-index:2;width:20px;height:20px;display:flex;align-items:center;justify-content:center}
+.music-icon .play-icon{width:0;height:0;border-style:solid;border-width:8px 0 8px 14px;border-color:transparent transparent transparent #ffa8c5;margin-left:3px;transition:all 0.3s ease}
+.music-icon .pause-icon{display:none;gap:4px;align-items:center}
+.music-icon .pause-icon span{display:block;width:4px;height:16px;background:#ffa8c5;border-radius:2px}
+.music-player.playing .play-icon{display:none}
+.music-player.playing .pause-icon{display:flex}
+.equalizer{display:none;position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);gap:2px;align-items:flex-end;height:12px}
+.music-player.playing .equalizer{display:flex}
+.eq-bar{width:3px;background:rgba(255,150,200,0.7);border-radius:2px;animation:eq-bounce ease-in-out infinite}
+.eq-bar:nth-child(1){height:5px;animation-duration:0.8s}
+.eq-bar:nth-child(2){height:9px;animation-duration:0.6s;animation-delay:0.1s}
+.eq-bar:nth-child(3){height:4px;animation-duration:0.9s;animation-delay:0.2s}
+.eq-bar:nth-child(4){height:7px;animation-duration:0.7s;animation-delay:0.15s}
+.eq-bar:nth-child(5){height:5px;animation-duration:0.85s;animation-delay:0.05s}
+@keyframes eq-bounce{0%,100%{height:3px}50%{height:12px}}
+.music-player.playing .music-btn{animation:music-pulse 2s ease-in-out infinite}
+@keyframes music-pulse{0%,100%{box-shadow:0 0 15px rgba(255,100,150,0.2)}50%{box-shadow:0 0 30px rgba(255,100,150,0.4),0 0 60px rgba(255,100,150,0.15)}}
+
+/* ═══ LOVE LETTER (Legal Style) ═══ */
+.love-letter-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:500;display:none;justify-content:center;align-items:center;backdrop-filter:blur(5px);opacity:0;transition:opacity 0.5s}
+.love-letter-overlay.active{display:flex;opacity:1}
+.love-letter{background:linear-gradient(135deg,#fdf5e6,#faebd7);max-width:450px;width:90%;padding:35px 30px;border-radius:8px;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.5);font-family:'Playfair Display',serif;color:#3a2a1a;transform:scale(0.8);transition:transform 0.5s ease;max-height:80vh;overflow-y:auto}
+.love-letter-overlay.active .love-letter{transform:scale(1)}
+.love-letter-header{text-align:center;border-bottom:2px solid #8b7355;padding-bottom:15px;margin-bottom:15px}
+.love-letter-seal{font-size:2.5rem;margin-bottom:5px}
+.love-letter-title{font-size:1.1rem;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#5a3a2a}
+.love-letter-case{font-size:0.75rem;color:#8b7355;margin-top:5px;font-style:italic}
+.love-letter-body{font-size:0.85rem;line-height:1.8;color:#4a3a2a}
+.love-letter-body p{margin-bottom:12px;text-indent:20px}
+.love-letter-body .whereas{font-weight:bold;color:#5a3a2a;text-indent:0;margin-top:8px}
+.love-letter-footer{margin-top:20px;padding-top:15px;border-top:1px solid #8b7355;text-align:center;font-style:italic;font-size:0.8rem;color:#8b7355}
+.love-letter-sign{font-family:'Great Vibes',cursive;font-size:1.8rem;color:#c41e3a;margin-top:10px}
+.love-letter-close{position:absolute;top:10px;right:15px;font-size:1.5rem;cursor:pointer;color:#8b7355;transition:color 0.3s;background:none;border:none;font-family:inherit}
+.love-letter-close:hover{color:#c41e3a}
+
+/* ═══ TABLET ═══ */
+@media(max-width:1024px){
+  .scene{padding:30px 15px 90px}
+  .rose-container{width:250px;height:290px}
+  .message-title{font-size:clamp(2rem,5vw,3.5rem)}
+}
+/* ═══ PHONE ═══ */
+@media(max-width:600px){
+  .scene{padding:20px 10px 80px;gap:12px}
+  .rose-container{width:200px;height:240px}
+  .cat-container{right:-65px!important;transform:scale(0.7)!important}
+  @keyframes cat-appear{0%{opacity:0;transform:translateX(30px) scale(0.7)}100%{opacity:1;transform:translateX(0) scale(0.7)}}
+  .moon{width:45px;height:45px;top:4%;right:6%}
+  .music-player{bottom:15px;right:15px}
+  .music-btn{width:42px;height:42px}
+  .music-info{display:none}
+  .lawyer-cards{gap:6px}
+  .law-card{padding:7px 12px}
+  .law-card-text{font-size:0.7rem!important}
+  .message-poem{font-size:0.75rem!important}
+  .message-poem .line{white-space:normal;border-right:none;width:auto;animation:fade-in-line-mobile 1s ease-out forwards!important}
+  .message-poem .line:nth-child(1){animation-delay:7s!important}
+  .message-poem .line:nth-child(2){animation-delay:8.5s!important}
+  .message-poem .line:nth-child(3){animation-delay:10s!important}
+  .message-poem .line:nth-child(4){animation-delay:11.5s!important}
+  .heart-button{padding:10px 28px;font-size:0.8rem}
+  .love-letter{padding:25px 20px}
+  .love-letter-body{font-size:0.8rem}
+  .splash-name{font-size:clamp(3rem,10vw,5rem)!important}
+}
+@keyframes fade-in-line-mobile{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- ═══ VIDEO BACKGROUND ═══ -->
+<video class="video-bg" autoplay muted loop playsinline>
+  <source src="background.mp4" type="video/mp4">
+</video>
+<div class="video-overlay"></div>
+
+<!-- ═══ SPLASH SCREEN ═══ -->
+<div class="splash" id="splash">
+  <div class="splash-name">Sofia</div>
+  <div class="splash-sub">✦ Esto lo hize yo pa' ti, mi Diamantina 💎 ✦</div>
+  <div class="splash-hint">~ toca la pantalla ~</div>
+</div>
+
+<!-- ═══ AUDIO ═══ -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="Los de Adentro - Una Canción.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ═══ MUSIC PLAYER ═══ -->
+<div class="music-player" id="musicPlayer">
+  <div class="music-info">
+    <div class="music-song-title">Una Canción</div>
+    <div class="music-artist">Los de Adentro</div>
+  </div>
+  <button class="music-btn" id="musicBtn" aria-label="Reproducir música">
+    <div class="music-icon">
+      <div class="play-icon"></div>
+      <div class="pause-icon"><span></span><span></span></div>
+    </div>
+    <div class="equalizer">
+      <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+    </div>
+  </button>
+</div>
+
+<!-- ═══ AURORA / NEBULA BACKGROUND ═══ -->
+<div class="bg-layer">
+  <div class="bg-gradient"></div>
+  <div class="aurora aurora-1"></div>
+  <div class="aurora aurora-2"></div>
+  <div class="aurora aurora-3"></div>
+  <div class="nebula-glow nebula-1"></div>
+  <div class="nebula-glow nebula-2"></div>
+  <div class="nebula-glow nebula-3"></div>
+</div>
+
+<div class="moon">
+  <div class="moon-crater crater-1"></div>
+  <div class="moon-crater crater-2"></div>
+  <div class="moon-crater crater-3"></div>
+  <div class="moon-crater crater-4"></div>
+</div>
+<div class="moon-cloud cloud-1"><div class="moon-cloud-shape"></div></div>
+<div class="moon-cloud cloud-2"><div class="moon-cloud-shape"></div></div>
+<div class="stars-container" id="stars"></div>
+<div class="particles-container" id="particles"></div>
+<div class="hearts-container" id="hearts"></div>
+<div class="ground"></div>
+<div class="ground-fog"></div>
+
+<!-- ═══ MAIN SCENE ═══ -->
+<div class="scene" id="mainScene">
+  <div class="rose-container">
+    <div class="glow"></div>
+    <div class="rose">
+      <div class="stem" style="left:50%;transform:translateX(-50%)">
+        <div class="thorn thorn-left" style="top:40%"></div>
+        <div class="thorn thorn-right" style="top:60%"></div>
+        <div class="leaf leaf-left" style="--rotation:-20deg"><div class="leaf-vein"></div></div>
+        <div class="leaf leaf-right" style="--rotation:20deg"><div class="leaf-vein"></div></div>
+      </div>
+      <div class="flower-head">
+        <div class="sepal"></div><div class="sepal"></div><div class="sepal"></div>
+        <div class="petal petal-outer petal-1" style="--r:0deg"></div>
+        <div class="petal petal-outer petal-2" style="--r:45deg"></div>
+        <div class="petal petal-outer petal-3" style="--r:90deg"></div>
+        <div class="petal petal-outer petal-4" style="--r:135deg"></div>
+        <div class="petal petal-outer petal-5" style="--r:180deg"></div>
+        <div class="petal petal-outer petal-6" style="--r:225deg"></div>
+        <div class="petal petal-outer petal-7" style="--r:270deg"></div>
+        <div class="petal petal-outer petal-8" style="--r:315deg"></div>
+        <div class="petal petal-inner petal-9"></div>
+        <div class="petal petal-inner petal-10"></div>
+        <div class="petal petal-inner petal-11"></div>
+        <div class="petal petal-inner petal-12"></div>
+        <div class="petal petal-inner petal-13"></div>
+        <div class="petal petal-center petal-14"></div>
+        <div class="petal petal-center petal-15"></div>
+        <div class="petal petal-center petal-16"></div>
+        <div class="dew dew-1"></div>
+        <div class="dew dew-2"></div>
+        <div class="dew dew-3"></div>
+      </div>
+    </div>
+    <!-- ═══ EREN THE CAT ═══ -->
+    <div class="cat-container" id="catEren">
+      <div class="cat-purr" id="catPurr">miau~ 💕</div>
+      <div class="cat">
+        <div class="cat-head">
+          <div class="cat-ear cat-ear-left"></div>
+          <div class="cat-ear cat-ear-right"></div>
+          <div class="cat-ear-inner left"></div>
+          <div class="cat-ear-inner right"></div>
+          <div class="cat-eye left"></div>
+          <div class="cat-eye right"></div>
+          <div class="cat-nose"></div>
+          <div class="cat-mouth"></div>
+          <div class="cat-whisker wl1"></div>
+          <div class="cat-whisker wl2"></div>
+          <div class="cat-whisker wr1"></div>
+          <div class="cat-whisker wr2"></div>
+        </div>
+        <div class="cat-body"></div>
+        <div class="cat-tail"></div>
+        <div class="cat-paws"><div class="cat-paw"></div><div class="cat-paw"></div></div>
+      </div>
+      <div class="cat-label">~ Eren 🐱 ~</div>
+    </div>
+  </div>
+
+  <div class="message-container">
+    <h1 class="message-title">Sofia, Mi Diamantina 💎</h1>
+    <p class="message-subtitle">✦ con mucho cariño, de tu ingeniero ✦</p>
+    <div class="message-poem">
+      <div class="line">Eres la razón por la que sonrio cada dia,</div>
+      <div class="line">mi mayor orgullo, mi mejor compania. 🤓</div>
+      <div class="line">Si la vida fuera un codigo, tu serias la solucion,</div>
+      <div class="line">la funcion que le da sentido a mi corazon. 🌹💕</div>
+    </div>
+  </div>
+
+  <!-- ═══ LAWYER WORDPLAY CARDS ═══ -->
+  <div class="lawyer-cards" id="lawyerCards">
+    <div class="law-card" onclick="flipCard(this)"><span class="law-card-text"><span class="law-card-icon">⚖️</span>El jurado te declara: absolutamente hermosa</span></div>
+    <div class="law-card" onclick="flipCard(this)"><span class="law-card-text"><span class="law-card-icon">📜</span>Artículo 14: Los abrazos son obligatorios</span></div>
+    <div class="law-card" onclick="flipCard(this)"><span class="law-card-text"><span class="law-card-icon">🏛️</span>Apelacion rechazada: No puedo dejar de pensarte</span></div>
+    <div class="law-card" onclick="flipCard(this)"><span class="law-card-text"><span class="law-card-icon">💝</span>ALERTA: Novia demasiado linda, peligro cardiaco</span></div>
+    <div class="law-card" onclick="flipCard(this)"><span class="law-card-text"><span class="law-card-icon">🐱</span>Eren certifica: estos humanos son aprobados 🐾</span></div>
+    <div class="law-card" onclick="flipCard(this)"><span class="law-card-text"><span class="law-card-icon">🔒</span>Clausula secreta: te voy a querer siempre</span></div>
+    <div class="law-card" onclick="flipCard(this)"><span class="law-card-text"><span class="law-card-icon">📶</span>Señal detectada: 100% amor desde la FIEE</span></div>
+  </div>
+
+  <button class="heart-button" id="loveBtn" onclick="burstHearts(event)">💖 Carta de Amor Legal 💖</button>
+
+  <!-- ═══ HEART OF HEARTS CANVAS ═══ -->
+  <div class="heart-canvas-section">
+    <canvas class="heart-canvas" id="heartCanvas"></canvas>
+    <div class="heart-canvas-label">~ toca el corazon pa' ver la magia ~</div>
+  </div>
+
+  <!-- ═══ COUNTDOWN TO VALENTINE'S DAY ═══ -->
+  <div class="countdown-section">
+    <div class="countdown-label">✦ Cuenta regresiva pa' San Valentin ✦</div>
+    <div class="countdown-timer" id="countdown"></div>
+  </div>
+
+  <!-- ═══ CODE TERMINAL ═══ -->
+  <div class="code-terminal-section">
+    <div class="code-terminal">
+      <div class="code-terminal-bar">
+        <div class="code-dot red"></div>
+        <div class="code-dot yellow"></div>
+        <div class="code-dot green"></div>
+        <div class="code-terminal-title">amor.js — Amado's IDE</div>
+      </div>
+      <div class="code-body" id="codeBody"></div>
+    </div>
+  </div>
+
+  <!-- ═══ WEBGL SHADER HEART (La Cereza del Pastel 🍒) ═══ -->
+  <div class="webgl-heart-section">
+    <div class="webgl-heart-wrap">
+      <canvas class="webgl-heart-canvas" id="glHeartCanvas"></canvas>
+    </div>
+    <div class="webgl-heart-label">✨ Corazon de neon, hecho con shaders GPU ✨</div>
+    <div class="webgl-heart-credit">Inspirado en MDJAmin/glowing-heart-webgl-shader-animation (MIT)</div>
+  </div>
+</div>
+
+<!-- ═══ LOVE LETTER OVERLAY ═══ -->
+<div class="love-letter-overlay" id="letterOverlay">
+  <div class="love-letter">
+    <button class="love-letter-close" onclick="closeLetter()">✕</button>
+    <div class="love-letter-header">
+      <div class="love-letter-seal">⚖️🌹</div>
+      <div class="love-letter-title">Tribunal Supremo del Amor</div>
+      <div class="love-letter-case">Caso N° 14-02 | Amado vs. Soledad | Jurisdiccion: Republica Independiente de Nosotros</div>
+    </div>
+    <div class="love-letter-body">
+      <p class="whereas">CONSIDERANDO:</p>
+      <p>Ke la ciudadana <strong>Sofía</strong>, alias "Diamantina 💎", abogada de profesion y ladrona de corazones por vocación, ha sido encontrada responsable de causar felicidad extrema e irreversible en el demandante (un ingenierito de la FIEE ke no sabe vivir sin ella).</p>
+      <p class="whereas">CONSIDERANDO:</p>
+      <p>Ke su gato <strong>Eren</strong>, en calidad de Supervisor y testigo peludo, confirma con sus ronroneos ke el amor en esta casa es real. Eren es el unico testigo ke acecto en este juicio. Dice ke somos culpables de ser muy cursis (y ke le debemos sobreshitos de atun). 🐱</p>
+      <p class="whereas">CONSIDERANDO:</p>
+      <p>Ke a veces, fuera de las risas y los "xdd", la vida no siempre compila a la primera. Y ahi has estado tu. Mi constante en un mundo de variables. Gracias por sostener mi mano cuando el camino se volvia dificil y yo no encontraba la solucion. 🥺</p>
+      <p class="whereas">SE RESUELVE:</p>
+      <p>Primero: Declarar ke Sofia es mi notificacion favorita, mi señal mas limpia, y la unica ke hace ke mi corazon haga overclocking peligroso waaaa. 📱</p>
+      <p>Segundo: Sentenciar al demandante a kererte todos los dias de su vida. Clausula: Derecho a mimos ilimitados. Devoluciones: DENEGADAS (Ya eres mia aña).</p>
+      <p>Tercero: Decretar ke no hay algoritmo ke calcule la inmensidad de mi gratitud. Perdon por mis bugs, y gracias por amarme tal cual soy. 🌹</p>
+    </div>
+    <div class="love-letter-footer">
+      Firmado con amor (y con sueñito de la UNI xd), a los 13 de febrero de 2026
+      <div class="love-letter-sign">Tu Amado ❤️</div>
+      <div style="font-size:0.6rem;color:#aaa;margin-top:5px">(Patrocinado por la UNI FIEE... ayudaaa xd)</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══ SPLASH SCREEN ═══
+const splash = document.getElementById('splash');
+const mainScene = document.getElementById('mainScene');
+let sceneStarted = false;
+
+splash.addEventListener('click', () => {
+  if (sceneStarted) return;
+  sceneStarted = true;
+  splash.classList.add('hidden');
+  setTimeout(() => { mainScene.classList.add('visible'); }, 800);
+  // Start music
+  const bgMusic = document.getElementById('bgMusic');
+  bgMusic.play().then(() => {
+    document.getElementById('musicPlayer').classList.add('playing');
+    musicStarted = true;
+  }).catch(() => {});
+});
+
+// ═══ STARS (COLORFUL) ═══
+function createStars() {
+  const c = document.getElementById('stars');
+  const starColors = [
+    'rgba(255,255,255,0.9)',
+    'rgba(255,245,238,0.85)',
+    'rgba(200,220,255,0.8)',
+    'rgba(255,230,200,0.75)',
+    'rgba(220,200,255,0.7)',
+    'rgba(255,200,220,0.65)',
+    'rgba(180,220,255,0.7)'
+  ];
+  for (let i = 0; i < 250; i++) {
+    const s = document.createElement('div');
+    s.classList.add('star');
+    const sz = Math.random() * 3 + 0.5;
+    const color = starColors[Math.floor(Math.random() * starColors.length)];
+    s.style.width = sz + 'px'; s.style.height = sz + 'px';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.background = color;
+    if (sz > 2) s.style.boxShadow = `0 0 ${sz * 2}px ${color}`;
+    s.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+    s.style.animationDelay = Math.random() * 5 + 's';
+    c.appendChild(s);
+  }
+}
+
+// ═══ SHOOTING STARS ═══
+function createShootingStar() {
+  const s = document.createElement('div');
+  s.classList.add('shooting-star');
+  s.style.left = Math.random() * 70 + '%';
+  s.style.top = Math.random() * 40 + '%';
+  s.style.animation = `shoot ${Math.random() * 1 + 0.8}s linear forwards`;
+  document.body.appendChild(s);
+  setTimeout(() => s.remove(), 2000);
+}
+setInterval(createShootingStar, 4000 + Math.random() * 3000);
+
+// ═══ PARTICLES ═══
+function createParticles() {
+  const c = document.getElementById('particles');
+  const colors = ['rgba(255,200,100,0.7)','rgba(255,180,220,0.6)','rgba(200,255,200,0.5)','rgba(180,220,255,0.5)','rgba(255,220,150,0.6)'];
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    const sz = Math.random() * 6 + 3;
+    p.style.width = sz + 'px'; p.style.height = sz + 'px';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.boxShadow = `0 0 ${sz * 2}px ${p.style.background}`;
+    p.style.animationDuration = (Math.random() * 10 + 8) + 's';
+    p.style.animationDelay = (Math.random() * 15) + 's';
+    c.appendChild(p);
+  }
+}
+
+// ═══ FLOATING HEARTS ═══
+function createFloatingHearts() {
+  const c = document.getElementById('hearts');
+  const hs = ['♥','❤','💕','💗','💖'];
+  setInterval(() => {
+    const h = document.createElement('div');
+    h.classList.add('floating-heart');
+    h.textContent = hs[Math.floor(Math.random() * hs.length)];
+    h.style.left = Math.random() * 100 + '%';
+    h.style.fontSize = (Math.random() * 15 + 12) + 'px';
+    h.style.animationDuration = (Math.random() * 8 + 8) + 's';
+    h.style.color = `rgba(255,${Math.floor(Math.random()*100+80)},${Math.floor(Math.random()*80+130)},${Math.random()*0.4+0.3})`;
+    c.appendChild(h);
+    setTimeout(() => h.remove(), 16000);
+  }, 2500);
+}
+
+// ═══ FALLING PETALS ═══
+function createFallingPetals() {
+  setInterval(() => {
+    const p = document.createElement('div');
+    p.classList.add('petal-fall');
+    p.textContent = ['🌸','🏵️','💮','🌺'][Math.floor(Math.random() * 4)];
+    p.style.left = Math.random() * 100 + '%';
+    p.style.top = '-20px';
+    p.style.fontSize = (Math.random() * 10 + 10) + 'px';
+    p.style.animation = `petal-falling ${Math.random() * 6 + 6}s linear forwards`;
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 12000);
+  }, 3000);
+}
+
+// ═══ HEART BURST ═══
+function burstHearts(event) {
+  event.stopPropagation();
+  const hearts = ['❤️','💕','💖','💗','💝','💓','🌹','✨','💘','⚖️'];
+  const x = event.clientX, y = event.clientY;
+  for (let i = 0; i < 15; i++) {
+    const h = document.createElement('div');
+    h.classList.add('heart-burst');
+    h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+    h.style.left = x + 'px'; h.style.top = y + 'px';
+    const angle = (Math.PI * 2 * i) / 15;
+    const dist = Math.random() * 120 + 60;
+    h.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+    h.style.setProperty('--ty', (Math.sin(angle) * dist - 40) + 'px');
+    h.style.setProperty('--rot', (Math.random() * 720 - 360) + 'deg');
+    h.style.fontSize = (Math.random() * 18 + 14) + 'px';
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 1500);
+  }
+  // Change button text temporarily with rotating messages
+  const btn = document.getElementById('loveBtn');
+  const originalText = btn.textContent;
+  const messages = [
+    '💝 Mi persona favorita en el mundo 💝',
+    '💖 Contigo todo tiene sentido 💖',
+    '💕 Gracias por existir, Sofia 💕',
+    '🌹 La mas bonita del universo 🌹',
+    '✨ Eres mi mejor descubrimiento ✨',
+    '💗 Mi corazon tiene tu nombre grabado 💗',
+    '⚖️ Veredicto: eres perfecta ⚖️',
+    '🐱 Eren lo confirma: te amamos! 🐱',
+    '🤓 Hasta mis circuitos se enamoran de ti 🤓'
+  ];
+  btn.textContent = messages[Math.floor(Math.random() * messages.length)];
+  setTimeout(() => { btn.textContent = originalText; }, 2000);
+  // Open love letter
+  document.getElementById('letterOverlay').classList.add('active');
+}
+
+function closeLetter() {
+  document.getElementById('letterOverlay').classList.remove('active');
+}
+
+document.getElementById('letterOverlay').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeLetter();
+});
+
+// ═══ LAWYER CARD INTERACTION ═══
+function flipCard(card) {
+  card.style.transform = 'scale(1.1) rotate(' + (Math.random() * 6 - 3) + 'deg)';
+  setTimeout(() => { card.style.transform = ''; }, 500);
+  // Mini burst from card
+  const rect = card.getBoundingClientRect();
+  for (let i = 0; i < 5; i++) {
+    const s = document.createElement('div');
+    s.classList.add('heart-burst');
+    s.textContent = ['✨','💕','⚖️','🌹'][Math.floor(Math.random() * 4)];
+    s.style.left = (rect.left + rect.width / 2) + 'px';
+    s.style.top = (rect.top + rect.height / 2) + 'px';
+    s.style.setProperty('--tx', (Math.random() * 100 - 50) + 'px');
+    s.style.setProperty('--ty', (Math.random() * -80 - 20) + 'px');
+    s.style.setProperty('--rot', (Math.random() * 360) + 'deg');
+    s.style.fontSize = '14px';
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 1500);
+  }
+}
+
+// ═══ CAT EREN INTERACTION ═══
+const catEren = document.getElementById('catEren');
+const catPurr = document.getElementById('catPurr');
+const catMessages = ['miau~ 💕','prrrr~ tengo hambre 🐱','*se frota contra ti*','aprobados por Eren ✅','quiero mimos �','Sofia huele bonito~ ✨','yo soy el jefe aqui 🐱','*ronronea fuerte*','mis papas son lindos ~'];
+let purrTimeout;
+
+catEren.addEventListener('click', (e) => {
+  e.stopPropagation();
+  catEren.classList.remove('purring');
+  void catEren.offsetWidth;
+  catPurr.textContent = catMessages[Math.floor(Math.random() * catMessages.length)];
+  catEren.classList.add('purring');
+  // Cat hearts
+  for (let i = 0; i < 6; i++) {
+    const h = document.createElement('div');
+    h.classList.add('heart-burst');
+    h.textContent = ['🐱','💕','🐾','💖','✨'][Math.floor(Math.random() * 5)];
+    const rect = catEren.getBoundingClientRect();
+    h.style.left = (rect.left + rect.width / 2) + 'px';
+    h.style.top = rect.top + 'px';
+    h.style.setProperty('--tx', (Math.random() * 80 - 40) + 'px');
+    h.style.setProperty('--ty', (Math.random() * -60 - 20) + 'px');
+    h.style.setProperty('--rot', (Math.random() * 360) + 'deg');
+    h.style.fontSize = '16px';
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 1500);
+  }
+  clearTimeout(purrTimeout);
+  purrTimeout = setTimeout(() => catEren.classList.remove('purring'), 2000);
+});
+
+// ═══ MOUSE SPARKLES ═══
+document.addEventListener('mousemove', (e) => {
+  if (Math.random() > 0.87) {
+    const s = document.createElement('div');
+    s.style.cssText = `position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:4px;height:4px;background:rgba(255,180,220,0.8);border-radius:50%;pointer-events:none;z-index:1000;box-shadow:0 0 8px rgba(255,150,200,0.6);animation:sparkle-fade 1s ease-out forwards;`;
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 1000);
+  }
+});
+
+const ss = document.createElement('style');
+ss.textContent = `@keyframes sparkle-fade{0%{opacity:1;transform:scale(1) translateY(0)}100%{opacity:0;transform:scale(0) translateY(-20px)}}`;
+document.head.appendChild(ss);
+
+// ═══ MUSIC PLAYER ═══
+const bgMusic = document.getElementById('bgMusic');
+const musicBtn = document.getElementById('musicBtn');
+const musicPlayer = document.getElementById('musicPlayer');
+let musicStarted = false;
+
+function toggleMusic() {
+  if (bgMusic.paused) {
+    bgMusic.play().then(() => { musicPlayer.classList.add('playing'); musicStarted = true; }).catch(() => {});
+  } else {
+    bgMusic.pause();
+    musicPlayer.classList.remove('playing');
+  }
+}
+musicBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleMusic(); });
+bgMusic.addEventListener('ended', () => musicPlayer.classList.remove('playing'));
+
+// ═══ ROSE SPARKLES ═══
+function createRoseSparkles() {
+  const flowerHead = document.querySelector('.flower-head');
+  if (!flowerHead) return;
+  for (let i = 0; i < 8; i++) {
+    const sp = document.createElement('div');
+    sp.classList.add('rose-sparkle');
+    sp.style.top = (Math.random() * 100) + 'px';
+    sp.style.left = (Math.random() * 120 + 10) + 'px';
+    sp.style.animationDelay = (Math.random() * 4 + 5) + 's';
+    sp.style.animationDuration = (Math.random() * 2 + 2) + 's';
+    flowerHead.appendChild(sp);
+  }
+}
+
+// ═══ HEART OF HEARTS CANVAS ═══
+(function() {
+  const canvas = document.getElementById('heartCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, cx, cy, particles = [], scattered = false, scatterTimer = null;
+  const HEART_SCALE = 0.38;
+  const NUM_PARTICLES = 130;
+  const colors = [
+    'rgba(255,80,120,A)','rgba(255,100,150,A)','rgba(255,130,170,A)',
+    'rgba(255,60,100,A)','rgba(255,150,180,A)','rgba(220,50,90,A)',
+    'rgba(255,180,200,A)','rgba(245,100,140,A)'
+  ];
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    W = rect.width; H = rect.height;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cx = W / 2; cy = H / 2;
+  }
+
+  // Heart parametric shape: x = 16sin^3(t), y = -(13cos(t) - 5cos(2t) - 2cos(3t) - cos(4t))
+  function heartX(t) { return 16 * Math.pow(Math.sin(t), 3); }
+  function heartY(t) { return -(13*Math.cos(t) - 5*Math.cos(2*t) - 2*Math.cos(3*t) - Math.cos(4*t)); }
+
+  class HeartParticle {
+    constructor(i) {
+      const t = (i / NUM_PARTICLES) * Math.PI * 2;
+      this.targetX = cx + heartX(t) * HEART_SCALE * (W / 100);
+      this.targetY = cy + heartY(t) * HEART_SCALE * (H / 100) - H * 0.05;
+      this.x = cx + (Math.random() - 0.5) * W;
+      this.y = cy + (Math.random() - 0.5) * H;
+      this.size = Math.random() * 6 + 4;
+      this.baseSize = this.size;
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+      this.alpha = Math.random() * 0.4 + 0.6;
+      this.vx = 0; this.vy = 0;
+      this.pulseOffset = Math.random() * Math.PI * 2;
+      this.pulseSpeed = Math.random() * 0.02 + 0.02;
+      this.wobble = Math.random() * 2;
+      this.wobbleSpeed = Math.random() * 0.03 + 0.01;
+      this.angle = 0;
+    }
+    scatter() {
+      this.vx = (Math.random() - 0.5) * 12;
+      this.vy = (Math.random() - 0.5) * 12;
+    }
+    update(time) {
+      if (scattered) {
+        this.x += this.vx; this.y += this.vy;
+        this.vx *= 0.97; this.vy *= 0.97;
+      } else {
+        const dx = this.targetX + Math.sin(time * this.wobbleSpeed + this.pulseOffset) * this.wobble - this.x;
+        const dy = this.targetY + Math.cos(time * this.wobbleSpeed + this.pulseOffset) * this.wobble - this.y;
+        this.x += dx * 0.06;
+        this.y += dy * 0.06;
+      }
+      this.size = this.baseSize + Math.sin(time * this.pulseSpeed + this.pulseOffset) * 1.5;
+      this.angle = Math.sin(time * 0.01 + this.pulseOffset) * 0.3;
+    }
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.angle);
+      ctx.globalAlpha = this.alpha;
+      const s = this.size;
+      ctx.fillStyle = this.color.replace('A', String(this.alpha));
+      // Draw mini heart shape
+      ctx.beginPath();
+      ctx.moveTo(0, s * 0.3);
+      ctx.bezierCurveTo(-s * 0.5, -s * 0.3, -s, s * 0.1, 0, s);
+      ctx.bezierCurveTo(s, s * 0.1, s * 0.5, -s * 0.3, 0, s * 0.3);
+      ctx.fill();
+      // Tiny glow
+      ctx.shadowColor = this.color.replace('A', '0.3');
+      ctx.shadowBlur = s;
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  function init() {
+    resize();
+    particles = [];
+    for (let i = 0; i < NUM_PARTICLES; i++) {
+      particles.push(new HeartParticle(i));
+    }
+  }
+
+  let animTime = 0;
+  function animate() {
+    animTime++;
+    ctx.clearRect(0, 0, W, H);
+    // Draw subtle glow behind the heart
+    if (!scattered) {
+      const grad = ctx.createRadialGradient(cx, cy - H*0.02, 0, cx, cy - H*0.02, W * 0.35);
+      grad.addColorStop(0, 'rgba(255,80,130,0.06)');
+      grad.addColorStop(0.5, 'rgba(255,100,150,0.02)');
+      grad.addColorStop(1, 'transparent');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, W, H);
+    }
+    for (const p of particles) {
+      p.update(animTime);
+      p.draw();
+    }
+    requestAnimationFrame(animate);
+  }
+
+  canvas.addEventListener('click', () => {
+    if (scattered) return;
+    scattered = true;
+    for (const p of particles) p.scatter();
+    clearTimeout(scatterTimer);
+    scatterTimer = setTimeout(() => {
+      scattered = false;
+    }, 2000);
+  });
+
+  window.addEventListener('resize', () => {
+    resize();
+    // Recalculate targets
+    for (let i = 0; i < particles.length; i++) {
+      const t = (i / NUM_PARTICLES) * Math.PI * 2;
+      particles[i].targetX = cx + heartX(t) * HEART_SCALE * (W / 100);
+      particles[i].targetY = cy + heartY(t) * HEART_SCALE * (H / 100) - H * 0.05;
+    }
+  });
+
+  init();
+  animate();
+})();
+
+// ═══ VALENTINE'S COUNTDOWN ═══
+(function() {
+  const countdownEl = document.getElementById('countdown');
+  const valentines = new Date('2026-02-14T00:00:00');
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = valentines - now;
+    if (diff <= 0) {
+      countdownEl.innerHTML = '<div class="countdown-done">💕 ¡Feliz San Valentin, Sofia! 💕</div>';
+      return;
+    }
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff / (1000*60*60)) % 24);
+    const m = Math.floor((diff / (1000*60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+    const pad = n => String(n).padStart(2, '0');
+    countdownEl.innerHTML = [
+      {v: d, n: 'dias'}, {v: pad(h), n: 'horas'},
+      {v: pad(m), n: 'min'}, {v: pad(s), n: 'seg'}
+    ].map(u => `<div class="countdown-unit"><span class="countdown-value">${u.v}</span><span class="countdown-name">${u.n}</span></div>`).join('');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+})();
+
+// ═══ CODE TERMINAL ═══
+(function() {
+  const codeBody = document.getElementById('codeBody');
+  if (!codeBody) return;
+
+  // Each line: [content, type] where type affects coloring
+  // Types: 'cm' (comment), 'kw' (keyword line), 'str' (string), 'fn' (function), 'blank'
+  const codeLines = [
+    ['// amor.js - Programa mas importante de mi vida', 'cm'],
+    ['', 'blank'],
+    ['<span class="syn-kw">const</span> <span class="syn-var">SOFIA</span> = {', 'raw'],
+    ['  <span class="syn-var">nombre</span>: <span class="syn-str">"Sofia 💎"</span>,', 'raw'],
+    ['  <span class="syn-var">profesion</span>: <span class="syn-str">"Futura abogada brillante ⚖️"</span>,', 'raw'],
+    ['  <span class="syn-var">nivel_de_ternura</span>: <span class="syn-num">Infinity</span>,', 'raw'],
+    ['  <span class="syn-var">sonrisa</span>: <span class="syn-str">"Capaz de reiniciar cualquier mal dia"</span>', 'raw'],
+    ['};', 'raw'],
+    ['', 'blank'],
+    ['// El gatito supervisor da su veredicto:', 'cm'],
+    ['<span class="syn-kw">const</span> <span class="syn-var">Eren</span> = <span class="syn-kw">new</span> <span class="syn-cls">GatoJuez</span>(<span class="syn-str">"🐱"</span>);', 'raw'],
+    ['<span class="syn-kw">if</span> (<span class="syn-var">Eren</span>.<span class="syn-fn">aprueba</span>(<span class="syn-var">SOFIA</span>)) {', 'raw'],
+    ['  <span class="syn-var">console</span>.<span class="syn-fn">log</span>(<span class="syn-str">"Relacion validada por el tribunal felino"</span>);', 'raw'],
+    ['}', 'raw'],
+    ['', 'blank'],
+    ['// Eren ronronea de aprobacion', 'cm'],
+    ['// (pidio atun como honorarios)', 'cm'],
+    ['', 'blank'],
+    ['<span class="syn-kw">async function</span> <span class="syn-fn">amarASofia</span>() {', 'raw'],
+    ['  <span class="syn-kw">while</span> (<span class="syn-kw">true</span>) { <span class="syn-cm">// No tiene condicion de salida</span>', 'raw'],
+    ['    <span class="syn-kw">try</span> {', 'raw'],
+    ['      <span class="syn-kw">await</span> <span class="syn-fn">hacerlaSonreir</span>();', 'raw'],
+    ['    } <span class="syn-kw">catch</span> (<span class="syn-var">distancia</span>) {', 'raw'],
+    ['      <span class="syn-var">corazon</span>.<span class="syn-fn">enviarLatido</span>(<span class="syn-str">"Estoy pensando en ti"</span>);', 'raw'],
+    ['    }', 'raw'],
+    ['    <span class="syn-cm">// Nota: este loop no se detiene jamas</span>', 'raw'],
+    ['  }', 'raw'],
+    ['}', 'raw'],
+    ['', 'blank'],
+    ['// Mi codigo puede tener bugs...', 'cm'],
+    ['// pero mi amor por ti compila perfecto. 🌹', 'cm'],
+    ['', 'blank'],
+    ['<span class="syn-fn">amarASofia</span>(); <span class="syn-cm">// ejecutando... ❤️</span>', 'raw'],
+    ['', 'blank'],
+    ['<span class="syn-cm">// > Output: Sofia, eres lo mejor que me paso.</span>', 'raw'],
+  ];
+
+  let currentLine = 0;
+  let currentChar = 0;
+  let lineEl = null;
+  let contentEl = null;
+  let cursorEl = null;
+
+  function getPlainLength(html) {
+    const tmp = document.createElement('span');
+    tmp.innerHTML = html;
+    return tmp.textContent.length;
+  }
+
+  function getPartialHtml(fullHtml, charCount) {
+    // Build partial by revealing characters one at a time, preserving tags
+    let result = '';
+    let visible = 0;
+    let inTag = false;
+    for (let i = 0; i < fullHtml.length; i++) {
+      if (fullHtml[i] === '<') { inTag = true; result += fullHtml[i]; continue; }
+      if (fullHtml[i] === '>') { inTag = false; result += fullHtml[i]; continue; }
+      if (inTag) { result += fullHtml[i]; continue; }
+      if (visible < charCount) { result += fullHtml[i]; visible++; }
+      else break;
+    }
+    // Close any open tags
+    const openTags = result.match(/<span[^>]*>/g) || [];
+    const closeTags = result.match(/<\/span>/g) || [];
+    const unclosed = openTags.length - closeTags.length;
+    for (let i = 0; i < unclosed; i++) result += '</span>';
+    return result;
+  }
+
+  function typeNextChar() {
+    if (currentLine >= codeLines.length) {
+      if (cursorEl) cursorEl.remove();
+      return;
+    }
+
+    const [content, type] = codeLines[currentLine];
+
+    if (!lineEl) {
+      lineEl = document.createElement('div');
+      lineEl.className = 'code-line';
+      const numEl = document.createElement('span');
+      numEl.className = 'code-line-num';
+      numEl.textContent = currentLine + 1;
+      contentEl = document.createElement('span');
+      contentEl.className = 'code-line-content';
+      lineEl.appendChild(numEl);
+      lineEl.appendChild(contentEl);
+      codeBody.appendChild(lineEl);
+      // Remove cursor from prev line, add to this one
+      if (cursorEl) cursorEl.remove();
+      cursorEl = document.createElement('span');
+      cursorEl.className = 'code-cursor';
+    }
+
+    if (type === 'blank' || content === '') {
+      contentEl.innerHTML = '&nbsp;';
+      codeBody.scrollTop = codeBody.scrollHeight;
+      currentLine++;
+      lineEl = null; contentEl = null;
+      setTimeout(typeNextChar, 100);
+      return;
+    }
+
+    if (type === 'cm') {
+      const plainLen = content.length;
+      if (currentChar < plainLen) {
+        currentChar++;
+        contentEl.innerHTML = '<span class="syn-cm">' + content.substring(0, currentChar) + '</span>';
+        contentEl.appendChild(cursorEl);
+        codeBody.scrollTop = codeBody.scrollHeight;
+        setTimeout(typeNextChar, 25 + Math.random() * 20);
+      } else {
+        currentChar = 0; currentLine++; lineEl = null; contentEl = null;
+        setTimeout(typeNextChar, 200);
+      }
+      return;
+    }
+
+    // raw type: HTML with syntax spans
+    const plainLen = getPlainLength(content);
+    if (currentChar < plainLen) {
+      currentChar++;
+      contentEl.innerHTML = getPartialHtml(content, currentChar);
+      contentEl.appendChild(cursorEl);
+      codeBody.scrollTop = codeBody.scrollHeight;
+      setTimeout(typeNextChar, 22 + Math.random() * 25);
+    } else {
+      currentChar = 0; currentLine++; lineEl = null; contentEl = null;
+      setTimeout(typeNextChar, 180);
+    }
+  }
+
+  // Start typing after a delay (when the section becomes visible)
+  setTimeout(typeNextChar, 23000);
+})();
+
+// ═══ CLICK RIPPLE WAVES ═══
+document.addEventListener('click', (e) => {
+  for (let i = 0; i < 3; i++) {
+    const r = document.createElement('div');
+    r.className = 'click-ripple';
+    r.style.left = e.clientX + 'px';
+    r.style.top = e.clientY + 'px';
+    r.style.animationDelay = (i * 0.15) + 's';
+    r.style.borderColor = `hsla(${340 + i * 20}, 80%, ${65 + i * 10}%, ${0.6 - i * 0.15})`;
+    document.body.appendChild(r);
+    setTimeout(() => r.remove(), 1200);
+  }
+});
+
+// ═══ FIREWORKS ENGINE ═══
+(function() {
+  const canvas = document.createElement('canvas');
+  canvas.className = 'fireworks-canvas';
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  let W, H, fireworks = [], fwParticles = [];
+
+  function resize() {
+    const dpr = window.devicePixelRatio || 1;
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  class Firework {
+    constructor(x, y) {
+      this.x = x || Math.random() * W;
+      this.y = H;
+      this.targetY = y || Math.random() * H * 0.5 + 50;
+      this.speed = 4 + Math.random() * 3;
+      this.done = false;
+      this.hue = Math.random() * 60 + 320; // pink-red range
+      this.trail = [];
+    }
+    update() {
+      this.trail.push({x: this.x, y: this.y});
+      if (this.trail.length > 8) this.trail.shift();
+      this.y -= this.speed;
+      if (this.y <= this.targetY) {
+        this.done = true;
+        this.explode();
+      }
+    }
+    explode() {
+      const count = 40 + Math.floor(Math.random() * 30);
+      for (let i = 0; i < count; i++) {
+        const angle = (Math.PI * 2 * i) / count;
+        const speed = 2 + Math.random() * 4;
+        fwParticles.push({
+          x: this.x, y: this.y,
+          vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
+          alpha: 1, decay: 0.015 + Math.random() * 0.015,
+          size: 1.5 + Math.random() * 2,
+          hue: this.hue + Math.random() * 40 - 20
+        });
+      }
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${this.hue},80%,70%,0.9)`;
+      ctx.fill();
+      for (let i = 0; i < this.trail.length; i++) {
+        const a = i / this.trail.length * 0.5;
+        ctx.beginPath();
+        ctx.arc(this.trail[i].x, this.trail[i].y, 1, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${this.hue},80%,70%,${a})`;
+        ctx.fill();
+      }
+    }
+  }
+
+  let fwActive = false;
+  function fwAnimate() {
+    if (!fwActive && fireworks.length === 0 && fwParticles.length === 0) return;
+    ctx.clearRect(0, 0, W, H);
+    // Update fireworks
+    for (let i = fireworks.length - 1; i >= 0; i--) {
+      fireworks[i].update();
+      fireworks[i].draw();
+      if (fireworks[i].done) fireworks.splice(i, 1);
+    }
+    // Update particles
+    for (let i = fwParticles.length - 1; i >= 0; i--) {
+      const p = fwParticles[i];
+      p.x += p.vx; p.y += p.vy;
+      p.vy += 0.05; // gravity
+      p.vx *= 0.99;
+      p.alpha -= p.decay;
+      if (p.alpha <= 0) { fwParticles.splice(i, 1); continue; }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${p.hue},80%,65%,${p.alpha})`;
+      ctx.shadowBlur = p.size * 3;
+      ctx.shadowColor = `hsla(${p.hue},80%,65%,0.5)`;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+    requestAnimationFrame(fwAnimate);
+  }
+
+  // Double-click launches fireworks!
+  document.addEventListener('dblclick', (e) => {
+    fwActive = true;
+    fireworks.push(new Firework(e.clientX, e.clientY * 0.3 + Math.random() * 100));
+    requestAnimationFrame(fwAnimate);
+    setTimeout(() => { fwActive = false; }, 3000);
+  });
+
+  // Expose for konami
+  window.launchFireworks = function(count) {
+    fwActive = true;
+    for (let i = 0; i < count; i++) {
+      setTimeout(() => {
+        fireworks.push(new Firework());
+      }, i * 300);
+    }
+    requestAnimationFrame(fwAnimate);
+    setTimeout(() => { fwActive = false; }, count * 300 + 3000);
+  };
+})();
+
+// ═══ KONAMI CODE EASTER EGG (↑↑↓↓←→←→BA) ═══
+(function() {
+  const overlay = document.createElement('div');
+  overlay.className = 'konami-overlay';
+  overlay.innerHTML = `
+    <div class="konami-msg">🌟 Desbloqueaste un secreto! 🌟</div>
+    <div class="konami-sub">↑↑↓↓←→←→BA — nivel de amor: INFINITO</div>
+    <div class="konami-sub" style="margin-top:10px;font-size:0.9rem;color:rgba(255,200,220,0.5)">Solo un ingeniero esconderia easter eggs aqui</div>
+    <button class="konami-close" onclick="this.parentElement.classList.remove('active')">cerrar ❤️</button>
+  `;
+  document.body.appendChild(overlay);
+
+  const code = [38,38,40,40,37,39,37,39,66,65]; // up up down down left right left right B A
+  let pos = 0;
+  document.addEventListener('keydown', (e) => {
+    if (e.keyCode === code[pos]) {
+      pos++;
+      if (pos === code.length) {
+        pos = 0;
+        overlay.classList.add('active');
+        if (window.launchFireworks) window.launchFireworks(15);
+      }
+    } else {
+      pos = 0;
+    }
+  });
+})();
+
+// ═══ RANDOM LOVE POPUPS ═══
+(function() {
+  const popups = [
+    '💖 for(ever) { amarte(); }',
+    '⚖️ Veredicto: eres irremplazable',
+    '🐱 Eren: *levanta la patita en aprobacion*',
+    '🤓 Error 503: imposible olvidarte',
+    '🌹 return "te quiero mucho";',
+    '💻 npm install felicidad --save',
+    '⚡ Voltaje del corazon: al maximo',
+    '📶 Conexion estable: Amado <3 Sofia',
+    '🔒 Contraseña de mi corazon: Sofia',
+    '😴 Thread.sleep(0) // pensando en ti',
+    '📱 Push notification: te quiero ✔️',
+    '🧡 Eren dice: mas caricias por favor',
+  ];
+  function showRandomPopup() {
+    if (!sceneStarted) return;
+    const p = document.createElement('div');
+    p.className = 'love-popup';
+    p.textContent = popups[Math.floor(Math.random() * popups.length)];
+    p.style.left = (Math.random() * 60 + 20) + '%';
+    p.style.top = (Math.random() * 60 + 10) + '%';
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 3500);
+  }
+  setInterval(showRandomPopup, 8000 + Math.random() * 5000);
+  setTimeout(showRandomPopup, 15000);
+})();
+
+// ═══ TOUCH/HOLD HEART EXPLOSION (mobile) ═══
+let holdTimer = null;
+document.addEventListener('touchstart', (e) => {
+  holdTimer = setTimeout(() => {
+    const t = e.touches[0];
+    const hearts = ['❤️','💕','💖','💗','🌹','✨','💝','🐱','⚖️','💎'];
+    for (let i = 0; i < 25; i++) {
+      const h = document.createElement('div');
+      h.classList.add('heart-burst');
+      h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+      h.style.left = t.clientX + 'px';
+      h.style.top = t.clientY + 'px';
+      const angle = (Math.PI * 2 * i) / 25;
+      const dist = Math.random() * 150 + 60;
+      h.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+      h.style.setProperty('--ty', (Math.sin(angle) * dist - 50) + 'px');
+      h.style.setProperty('--rot', (Math.random() * 720 - 360) + 'deg');
+      h.style.fontSize = (Math.random() * 20 + 14) + 'px';
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 1500);
+    }
+  }, 800);
+});
+document.addEventListener('touchend', () => clearTimeout(holdTimer));
+document.addEventListener('touchmove', () => clearTimeout(holdTimer));
+
+// ═══ WEBGL SHADER HEART (from MDJAmin - MIT License) ═══
+(function() {
+  const c = document.getElementById('glHeartCanvas');
+  if (!c) return;
+  const rect = c.getBoundingClientRect();
+  c.width = rect.width * (window.devicePixelRatio || 1);
+  c.height = rect.height * (window.devicePixelRatio || 1);
+  const gl = c.getContext('webgl');
+  if (!gl) { console.warn('WebGL not supported'); return; }
+
+  const vertSrc = `attribute vec2 position;void main(){gl_Position=vec4(position,0.0,1.0);}`;
+
+  const fragSrc = `
+precision highp float;
+uniform float width;
+uniform float height;
+vec2 resolution=vec2(width,height);
+uniform float time;
+#define POINT_COUNT 8
+vec2 points[POINT_COUNT];
+const float speed=-0.5;
+const float len=0.25;
+float intensity=1.3;
+float radius=0.008;
+
+float sdBezier(vec2 pos,vec2 A,vec2 B,vec2 C){
+  vec2 a=B-A;vec2 b=A-2.0*B+C;vec2 cc=a*2.0;vec2 d=A-pos;
+  float kk=1.0/dot(b,b);float kx=kk*dot(a,b);
+  float ky=kk*(2.0*dot(a,a)+dot(d,b))/3.0;float kz=kk*dot(d,a);
+  float res=0.0;float p=ky-kx*kx;float p3=p*p*p;
+  float q=kx*(2.0*kx*kx-3.0*ky)+kz;float h=q*q+4.0*p3;
+  if(h>=0.0){h=sqrt(h);vec2 x=(vec2(h,-h)-q)/2.0;
+    vec2 uv=sign(x)*pow(abs(x),vec2(1.0/3.0));
+    float t=uv.x+uv.y-kx;t=clamp(t,0.0,1.0);
+    vec2 qos=d+(cc+b*t)*t;res=length(qos);
+  }else{float z=sqrt(-p);float v=acos(q/(p*z*2.0))/3.0;
+    float m=cos(v);float n=sin(v)*1.732050808;
+    vec3 t=vec3(m+m,-n-m,n-m)*z-kx;t=clamp(t,0.0,1.0);
+    vec2 qos=d+(cc+b*t.x)*t.x;float dis=dot(qos,qos);res=dis;
+    qos=d+(cc+b*t.y)*t.y;dis=dot(qos,qos);res=min(res,dis);
+    qos=d+(cc+b*t.z)*t.z;dis=dot(qos,qos);res=min(res,dis);
+    res=sqrt(res);}
+  return res;
+}
+
+vec2 getHeartPosition(float t){
+  return vec2(16.0*sin(t)*sin(t)*sin(t),
+    -(13.0*cos(t)-5.0*cos(2.0*t)-2.0*cos(3.0*t)-cos(4.0*t)));
+}
+
+float getGlow(float dist,float radius,float intensity){
+  return pow(radius/dist,intensity);
+}
+
+float getSegment(float t,vec2 pos,float offset,float scale){
+  for(int i=0;i<POINT_COUNT;i++){
+    points[i]=getHeartPosition(offset+float(i)*len+fract(speed*t)*6.28);}
+  vec2 c2=(points[0]+points[1])/2.0;vec2 c_prev;float dist=10000.0;
+  for(int i=0;i<POINT_COUNT-1;i++){
+    c_prev=c2;c2=(points[i]+points[i+1])/2.0;
+    dist=min(dist,sdBezier(pos,scale*c_prev,scale*points[i],scale*c2));}
+  return max(0.0,dist);
+}
+
+void main(){
+  vec2 uv=gl_FragCoord.xy/resolution.xy;
+  float whr=resolution.x/resolution.y;
+  vec2 centre=vec2(0.5,0.5);vec2 pos=centre-uv;
+  pos.y/=whr;pos.y+=0.02;
+  float scale=0.000015*height;
+  float t=time;
+  float dist=getSegment(t,pos,0.0,scale);
+  float glow=getGlow(dist,radius,intensity);
+  vec3 col=vec3(0.0);
+  col+=10.0*vec3(smoothstep(0.003,0.001,dist));
+  col+=glow*vec3(1.0,0.05,0.3);
+  dist=getSegment(t,pos,3.4,scale);
+  glow=getGlow(dist,radius,intensity);
+  col+=10.0*vec3(smoothstep(0.003,0.001,dist));
+  col+=glow*vec3(0.1,0.4,1.0);
+  col=1.0-exp(-col);col=pow(col,vec3(0.4545));
+  gl_FragColor=vec4(col,1.0);
+}
+`;
+
+  function compileShader(src, type) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src); gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+      console.error('Shader error:', gl.getShaderInfoLog(s)); return null; }
+    return s;
+  }
+  const vs = compileShader(vertSrc, gl.VERTEX_SHADER);
+  const fs = compileShader(fragSrc, gl.FRAGMENT_SHADER);
+  if (!vs || !fs) return;
+  const prog = gl.createProgram();
+  gl.attachShader(prog, vs); gl.attachShader(prog, fs);
+  gl.linkProgram(prog); gl.useProgram(prog);
+
+  const vBuf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, vBuf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,-1,-1,1,1,1,-1]), gl.STATIC_DRAW);
+  const posLoc = gl.getAttribLocation(prog, 'position');
+  gl.enableVertexAttribArray(posLoc);
+  gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 8, 0);
+  const timeLoc = gl.getUniformLocation(prog, 'time');
+  const wLoc = gl.getUniformLocation(prog, 'width');
+  const hLoc = gl.getUniformLocation(prog, 'height');
+  gl.uniform1f(wLoc, c.width); gl.uniform1f(hLoc, c.height);
+
+  let glTime = 0, lastFrame = Date.now();
+  function draw() {
+    const now = Date.now();
+    glTime += (now - lastFrame) / 1000;
+    lastFrame = now;
+    gl.uniform1f(timeLoc, glTime);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => {
+    const r = c.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    c.width = r.width * dpr; c.height = r.height * dpr;
+    gl.viewport(0, 0, c.width, c.height);
+    gl.uniform1f(wLoc, c.width); gl.uniform1f(hLoc, c.height);
+  });
+
+  gl.viewport(0, 0, c.width, c.height);
+  draw();
+})();
+
+// ═══ INIT ═══
+createStars();
+createParticles();
+createFloatingHearts();
+createFallingPetals();
+createRoseSparkles();
+setTimeout(createShootingStar, 3000);
+</script>
+</body>
+</html>
+
